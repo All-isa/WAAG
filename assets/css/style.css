@@ -1,9 +1,23 @@
 #map {
     height: 100%;
-  }
+}
+  
   /* Optional: Makes the sample page fill the window. */
   /* html, body {
     height: 100%;
     margin: 0;
     padding: 0;
       } */
+
+#footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+}
+.l-foot {
+    float: left;
+}
+
+.r-foot{
+    float: right;
+}
