@@ -6,3 +6,61 @@ function initMap() {
         zoom: 8
     });
 }
+
+$(document).ready(function () {
+
+    //Get elements
+    const emailId = $("#exampleInputEmail1");
+    const passwordId = $("#exampleInputPassword1");
+    const signup = $("#signup");
+    const login = $("#login");
+    const logout = $("#logout");
+    //Firebase Auth
+    const config = {
+        apiKey: "AIzaSyCy9eM2c0RKkQkB3TTINPHmIX9BajI_Gt8",
+        authDomain: "hikingapp-eb47b.firebaseapp.com",
+        databaseURL: "https://hikingapp-eb47b.firebaseio.com",
+        projectId: "hikingapp-eb47b",
+        storageBucket: "",
+        messagingSenderId: "768321299488"
+    };
+    
+    firebase.initializeApp(config);
+    
+    const auth = firebase.auth();
+    
+    auth.onAuthStateChanged(firebaseUser => { });
+    
+    // Add Login event
+    
+    $("#login").on('click', e=> {
+        e.preventDefault();
+        //Get email and password
+        const email = exampleInputEmail1.val().trim();
+        const password = exampleInputPassword1.val().trim();
+        const auth = firebase.auth();
+        //Sign in
+        const promise = auth.signInWithEmailAndPassword(email, password);
+        promise.catch(e => console.log(e.message));
+    });
+
+    $("#signup").on('click', e => {
+        e.preventDefault();
+        //Get email and password
+        //TODO: check for real email
+        const email = exampleInputEmail1.val().trim();
+        const password = exampleInputPassword1.val().trim();
+        const auth = firebase.auth();
+        //Create User
+        const promise = auth.createUserWithEmailAndPassword(email, password);
+        promise.catch(e => console.log(e.message));
+    });
+    
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+    if(firebaseUser) {
+        console.log(firebaseUser);
+    } else{
+        console.log("not logged in");
+    }
+    });
+});
