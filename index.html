@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><!-- Bootstrap link -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css"> <!--custom styled CSS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   <!--jquery reference-->
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>   <!--firebase reference-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- Bootstrap link -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!--custom styled CSS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--jquery reference-->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <!--firebase reference-->
     <title>Hiking App</title>
 </head>
+
 <body>
     <div class="container">
+        <div class="row container">
+            <div class="col">
+                <nav class="navbar navbar-expand-sm navbar-light bg-light px-0 py-0">
+                    <div class="mr-auto">
+                        <a class="navbar-brand px-0 py-0" href="https://placeholder.com">
+                            <img src="http://via.placeholder.com/200x75" href="#">
+                        </a>
+                    </div>
+                    <div class="" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item pr-3">
+                                <a class="nav-link" href="#">Log-out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
         <div class="row" id="map">
             <div class="col">this is where the map will live</div>
         </div>
 
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap" async
+        defer></script>
     <script src="./assets/javascript/app.js"></script>
-    
+
 </body>
+
 </html>
