@@ -12,11 +12,14 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <!--custom styled CSS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:300" rel="stylesheet">
     <!--jquery reference-->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <!--firebase reference-->
     <title>Hiking App</title>
 </head>
+
 
 <body>
     <div class="container">
@@ -41,32 +44,32 @@
         <div class="row">
             <div class="col-6">
                 <form id="signin-form">
-                        <div class="form-group">
-                          <label for="Email">Email address</label>
-                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="Password">Password</label>
-                          <input type="password" class="form-control" id="password" placeholder="Password">
-                        </div>
-                        <button type="submit" id="signup" class="btn btn-primary">Sign-up</button>
-                        <button type="submit" id="login" class="btn btn-primary">Log-in</button>
-                        <button type="submit" id="logout" class="btn btn-primary">Log-out</button>
+                    <div class="form-group">
+                        <label for="Email">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <button type="submit" id="signup" class="btn btn-primary">Sign-up</button>
+                    <button type="submit" id="login" class="btn btn-primary">Log-in</button>
+                    <button type="submit" id="logout" class="btn btn-primary">Log-out</button>
                 </form>
             </div>
         </div>
     </div>
 
-<div class="footer">
-    <div class="card-footer text-muted" id="footer">
+    <div class="footer">
+        <div class="card-footer text-muted" id="footer">
             <div class=l-foot>&copy;2018</div>
             <div class=r-foot>WAAG</div>
-          </div>
-</div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap"
-    async defer></script>
-    <script src= "assets/javascript/app.js"></script>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap" async
+        defer></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
