@@ -11,8 +11,8 @@ function initMap() {
 $(document).ready(function () {
 
     //Get elements
-    const emailId = $("#exampleInputEmail1");
-    const passwordId = $("#exampleInputPassword1");
+    const emailId = $("#email");
+    const passwordId = $("#password");
     const signup = $("#signup");
     const login = $("#login");
     const logout = $("#logout");
@@ -37,8 +37,8 @@ $(document).ready(function () {
     $("#login").on('click', e=> {
         e.preventDefault();
         //Get email and password
-        const email = exampleInputEmail1.val().trim();
-        const password = exampleInputPassword1.val().trim();
+        const email = emailId.val().trim();
+        const password = passwordId.val().trim();
         const auth = firebase.auth();
         //Sign in
         const promise = auth.signInWithEmailAndPassword(email, password);
@@ -49,8 +49,8 @@ $(document).ready(function () {
         e.preventDefault();
         //Get email and password
         //TODO: check for real email
-        const email = exampleInputEmail1.val().trim();
-        const password = exampleInputPassword1.val().trim();
+        const email = emailId.val().trim();
+        const password = passwordId.val().trim();
         const auth = firebase.auth();
         //Create User
         const promise = auth.createUserWithEmailAndPassword(email, password);
