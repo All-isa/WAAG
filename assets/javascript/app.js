@@ -1,13 +1,44 @@
-// var map;
-// var searchedLocation;
-// function initMap() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: {
-//             lat: 5.8520, lng: -55.2038
-//         },
-//         zoom: 3
-//     });
-// }
+//Global Variables
+var googleApi;
+var city;
+var state;
+var cityState;
+var zip;
+var map;
+var searchedLocation;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 5.8520, lng: -55.2038
+        },
+        zoom: 3
+    });
+};
+
+//Click event listener for the button the index page
+$("#search-info").on("click", function (event) {
+    event.preventDefault();
+    var googleApi = "AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c";
+    var city = $('#inputCity').val().trim();
+    var state = $('#inputState').val().trim();
+
+    //Query URL from the Google Maps API
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=+" + city + ",+" + state + "&key=" + googleApi;
+
+    // Performing our AJAX GET request
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(response.results[0].geometry.location);
+            //Passing latitude and longitude to searchedPlace
+            var searchedPlace = (response.results[0].geometry.location);
+            console.log(searchedPlace);
+
+        });
+
+});
 
 $(document).ready(function () {
 
