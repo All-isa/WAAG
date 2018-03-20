@@ -1,14 +1,24 @@
+/* font-family: 'Anton', sans-serif;
+font-family: 'Signika', sans-serif;
+font-family: 'Damion', cursive; */
+
+/* Base Styling */
+
+body {
+    font-family: 'Signika', sans-serif;
+    font-weight: 300;
+}
+
+
 #map {
     height: 100%;
 }
-  
   /* Optional: Makes the sample page fill the window. */
-  /* html, body {
+  html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-      } */
- 
+}
 #footer {
    position: absolute;
    bottom: 0;
@@ -25,3 +35,5 @@
 #signin-form {
   margin-left:40px;
 }
+
+
