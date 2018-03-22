@@ -23,9 +23,9 @@ var lng;
 // };
 
 //Click event listener for the button the index page
-$("#search-info").on("click", function (event) {
+$("#searchtrails").on("click", function (event) {
     event.preventDefault();
-    var city = $('#inputCity').val().trim();
+    var city = $('#city').val().trim();
     var state = $('#inputState').val().trim();
 
     //Query URL from the Google Maps API
@@ -49,17 +49,11 @@ $("#search-info").on("click", function (event) {
                 method: "GET"
             }).then(function (hikeInfo) {
 
-                console.log(queryHike);
+                var hikingImage = hikeInfo
 
                 // Log the resulting object
                 console.log(hikeInfo);
 
-
-                // Log the data in the console as well
-                // console.log(hikeInfo.trails[0].location);
-                // console.log(hikeInfo.trails[0].type);
-                // console.log(hikeInfo.trails[0].length);
-                // console.log(hikeInfo.trails[0].ascent);
             }).then(function (weather) {
                 var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
                 return $.ajax({
