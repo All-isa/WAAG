@@ -8,6 +8,7 @@ var map;
 var searchedPlace;
 var hikeApi = "200232469-8c224addc6df491926b59fdf73c26e1a";
 var googleApi = "AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c";
+var weatherApi = "6e84fd53e8f10a78c7c0f2df983c7a41";
 var distance = 3;
 var lat;
 var lng;
@@ -59,7 +60,15 @@ $("#search-info").on("click", function (event) {
                 // console.log(hikeInfo.trails[0].type);
                 // console.log(hikeInfo.trails[0].length);
                 // console.log(hikeInfo.trails[0].ascent);
-            });
+            }).then(function (weather) {
+                var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
+                return $.ajax({
+                    url: queryWeather,
+                    method: "GET"
+                }).then(function (weatherInfo) {
+                    console.log(weatherInfo);
+                })
+            })
         });
 });
 
