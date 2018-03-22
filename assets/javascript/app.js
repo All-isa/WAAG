@@ -8,23 +8,26 @@ var map;
 var searchedPlace;
 var hikeApi = "200232469-8c224addc6df491926b59fdf73c26e1a";
 var googleApi = "AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c";
+var weatherApi = "6e84fd53e8f10a78c7c0f2df983c7a41";
 var distance = 3;
 var lat;
 var lng;
 
-// function initMap() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: {
-//             lat: 5.8520, lng: -55.2038
-//         },
-//         zoom: 3
-//     });
-// };
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 38.8792, lng: -99.3268
+        },
+        zoom: 3
+    });
+};
+//Displays the city and state searched on the search page
+$("#display-city-state").html(city + " , " + state);
 
 //Click event listener for the button the index page
-$("#search-info").on("click", function (event) {
+$("#searchtrails").on("click", function (event) {
     event.preventDefault();
-    var city = $('#inputCity').val().trim();
+    var city = $('#city').val().trim();
     var state = $('#inputState').val().trim();
 
     //Query URL from the Google Maps API
@@ -48,18 +51,20 @@ $("#search-info").on("click", function (event) {
                 method: "GET"
             }).then(function (hikeInfo) {
 
-                console.log(queryHike);
+                var hikingImage = hikeInfo
 
                 // Log the resulting object
                 console.log(hikeInfo);
 
-
-                // Log the data in the console as well
-                // console.log(hikeInfo.trails[0].location);
-                // console.log(hikeInfo.trails[0].type);
-                // console.log(hikeInfo.trails[0].length);
-                // console.log(hikeInfo.trails[0].ascent);
-            });
+            }).then(function (weather) {
+                var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
+                return $.ajax({
+                    url: queryWeather,
+                    method: "GET"
+                }).then(function (weatherInfo) {
+                    console.log(weatherInfo);
+                })
+            })
         });
 });
 
