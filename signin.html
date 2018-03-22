@@ -13,7 +13,7 @@
     <!--custom styled CSS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:600" rel="stylesheet">
     <!--jquery reference-->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <!--firebase reference-->
@@ -22,7 +22,6 @@
 
 
 <body>
-    <div class="container">
         <div class="row container" id="navigation">
             <div class="col">
                 <nav class="navbar navbar-expand-sm px-0 py-0">
@@ -41,13 +40,24 @@
                 </nav>
             </div>
         </div>
+<div class="container">
+        <div class="row" id="signintext">
+                <div class="col"></div>
+                <div class="col-6">
+                    <h4>Take-A-Hike</h4>
+                    <h1>Hello Hiker</h1>
+                    <p>The trails are calling! Let's find the perfect trail for your next adventure. But first, please sign in.</p>
+                </div>
+                <div class="col"></div>
+        </div>
         <div class="row">
+            <div class="col"></div>
             <div class="col-6">
                 <form id="signin-form">
                     <div class="form-group">
-                        <label for="Email">Email address</label>
+                        <label for="Email">Email*</label>
+                        <p id="emailHelp">We'll never share your email with anyone else.</p>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
@@ -57,15 +67,14 @@
                     <button type="submit" id="login" class="btn btn-primary">Log-in</button>
                 </form>
             </div>
-        </div>
+            <div class="col"></div>
     </div>
-
+</div>
     <div class="footer">
         <div class="card-footer text-muted" id="footer">
-            <div class=l-foot>&copy;2018</div>
-            <div class=r-foot>WAAG</div>
+            <div class=foot>&copy;2018 WAAG TECHNOLOGY AND DESIGN GROUP</div>
         </div>
-    </div>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap" async
         defer></script>
     <script src="assets/javascript/app.js"></script>
