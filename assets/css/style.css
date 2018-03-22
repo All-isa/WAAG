@@ -1,6 +1,6 @@
-/* font-family: 'Anton', sans-serif;
+font-family: 'Anton', sans-serif;
 font-family: 'Signika', sans-serif;
-font-family: 'Damion', cursive; */
+font-family: 'Damion', cursive;
 
 /* Base Styling */
 
@@ -10,7 +10,24 @@ body {
     background-image: url("./../images/topography_neutral.svg");
     background-size: 33%;
 }
+h4 {
+    font-family: 'Damion', cursive;
+    color:  #f8f7f1;
+    font-size: 36px;
+}
+h1 {
+    color: #f8f7f1;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: 100px;
+}
 
+p {
+    font-size: 24px;
+    color:#f8f7f1;
+    font-family: 'Signika', sans-serif;
+    font-weight: 600;
+}
 
 #map {
     height: 400px;
@@ -18,34 +35,49 @@ body {
     margin: auto;
     padding-top:20%;
     /* float: right; */
-
 }
   /* Optional: Makes the sample page fill the window. */
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
-#footer {
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-}
-.l-foot {
-    float: left;
+    background-image: url("./../images/topography-01.svg"), linear-gradient(#49beaa, #196266);
+    background-size: 30;
 }
 
-.r-foot{
-    float: right;
+
+nav {
+    width: 100%;
+}
+#footer {
+   position: sticky;
+   bottom: 0;
+   width: 100%;
+   background-color:#3f4c49;
+}
+.foot {
+    text-align: center;
+    color: #49beaa;
 }
 
 #signin-form {
-  margin-left:40px;
+    background:rgba(162, 255, 239, .8);
+    padding:30px;
+    color:#014256;
+    font-family: 'Anton', sans-serif;
+}
+
+#emailHelp {
+    float:right;
+    font-size:10px;
 }
 
 #navigation {
-    background-image: url("./../images/topography-01.svg"), linear-gradient(#fcb420, #fede55);
-    background-size: 100%;
+    /* background-image: url("./../images/topography-01.svg"), linear-gradient(#fcb420, #fede55);
+    background-size: 100%; */
+    background-color:#f8f7f1;
+    width:100%;
 }
-
-
+#signintext {
+    text-align: center;
+}

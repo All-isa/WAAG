@@ -14,15 +14,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--jquery reference-->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:300" rel="stylesheet">
     <!--firebase reference-->
     <title>Hiking App</title>
 </head>
 
 <body>
-    <!-- universal header -->
+    <!-- Header -->
     <div class="container">
-        <div class="row container">
-            <div class="col">
+            <div class="col" id="header">
                 <nav class="navbar navbar-expand-sm navbar-light bg-light px-0 py-0">
                     <div class="mr-auto">
                         <a class="navbar-brand px-0 py-0" href="https://placeholder.com">
@@ -37,100 +38,97 @@
                         </ul>
                     </div>
                 </nav>
+        </div>
+        <div class="container">
+                <div class="row" id="signintext">
+                    <div class="col"></div>
+                    <div class="col-6">
+                            <h4>find-a-hike</h4>
+                            <h1>Trail Search</h1>
+                            <p>Help us find your next hike and fill out the form below.</p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-6">
+                        <form id="signin-form">
+                            <div class="form-group">
+                                <label for="city">City Name</label>
+                                <input type="city" class="form-control" id="city" placeholder="enter city here">
+                            </div>
+                            <div class="form-group">
+                                    <label for="inputState">State</label>
+                                    <select id="inputState" class="form-control">
+                                      <option selected>Choose...</option>
+                                      <option>Alabama</option>
+                                      <option>Alaska</option>
+                                      <option>Arizona</option>
+                                      <option>California</option>
+                                      <option>Colorado</option>
+                                      <option>Connecticut</option>
+                                      <option>Deleware</option>
+                                      <option>Florida</option>
+                                      <option>Georgia</option>
+                                      <option>Hawaii</option>
+                                      <option>Idaho</option>
+                                      <option>Illinois</option>
+                                      <option>Indiana</option>
+                                      <option>Iowa</option>
+                                      <option>Kansas</option>
+                                      <option>Kentucky</option>
+                                      <option>Louisiana</option>
+                                      <option>Maine</option>
+                                      <option>Maryland</option>
+                                      <option>Massachusetts</option>
+                                      <option>Michigan</option>
+                                      <option>Minnesota</option>
+                                      <option>Mississippi</option>
+                                      <option>Missouri</option>
+                                      <option>Montana</option>
+                                      <option>Nebraska</option>
+                                      <option>Nevada</option>
+                                      <option>New Hampshire</option>
+                                      <option>New Jersey</option>
+                                      <option>New Mexico</option>
+                                      <option>New York</option>
+                                      <option>North Carolina</option>
+                                      <option>North Dakota</option>
+                                      <option>Ohio</option>
+                                      <option>Oklahoma</option>
+                                      <option>Oregon</option>
+                                      <option>Pennsylvania</option>
+                                      <option>Rhode Island</option>
+                                      <option>South Carolina</option>
+                                      <option>South Dakota</option>
+                                      <option>Tennessee</option>
+                                      <option>Texas</option>
+                                      <option>Utah</option>
+                                      <option>Vermont</option>
+                                      <option>Virginia</option>
+                                      <option>Washington</option>
+                                      <option>West Virginia</option>
+                                      <option>Wisconsin</option>
+                                      <option>Wyoming</option>
+                                    </select>
+                                  </div>
+                            <div class="form-group">
+                                <label for="zipcode">Zipcode</label>
+                                <input type="zipcode" class="form-control" id="zipcode" placeholder="enter zipcode here">
+                            </div>
+                            <button type="submit" id="searchtrails" class="btn btn-primary">Search Trails</button>
+                    </div>
+                    <div class="col"></div>
             </div>
         </div>
-<!-- this is the search form for trails -->
-        <div class="row" id="map">
-            <div class="col">
-                <form class="search">
-                    <div class="form-row">
-                        <div class="form-group col-sm-6">
-                          <label for="inputCity">City</label>
-                          <input type="text" class="form-control" id="inputCity">
-                        </div>
-                        <div class="form-group col-md-4">
-                          <label for="inputState">State</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>Alabama</option>
-                            <option>Alaska</option>
-                            <option>Arizona</option>
-                            <option>California</option>
-                            <option>Colorado</option>
-                            <option>Connecticut</option>
-                            <option>Deleware</option>
-                            <option>Florida</option>
-                            <option>Georgia</option>
-                            <option>Hawaii</option>
-                            <option>Idaho</option>
-                            <option>Illinois</option>
-                            <option>Indiana</option>
-                            <option>Iowa</option>
-                            <option>Kansas</option>
-                            <option>Kentucky</option>
-                            <option>Louisiana</option>
-                            <option>Maine</option>
-                            <option>Maryland</option>
-                            <option>Massachusetts</option>
-                            <option>Michigan</option>
-                            <option>Minnesota</option>
-                            <option>Mississippi</option>
-                            <option>Missouri</option>
-                            <option>Montana</option>
-                            <option>Nebraska</option>
-                            <option>Nevada</option>
-                            <option>New Hampshire</option>
-                            <option>New Jersey</option>
-                            <option>New Mexico</option>
-                            <option>New York</option>
-                            <option>North Carolina</option>
-                            <option>North Dakota</option>
-                            <option>Ohio</option>
-                            <option>Oklahoma</option>
-                            <option>Oregon</option>
-                            <option>Pennsylvania</option>
-                            <option>Rhode Island</option>
-                            <option>South Carolina</option>
-                            <option>South Dakota</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option>Utah</option>
-                            <option>Vermont</option>
-                            <option>Virginia</option>
-                            <option>Washington</option>
-                            <option>West Virginia</option>
-                            <option>Wisconsin</option>
-                            <option>Wyoming</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                          <label for="inputZip">Zip</label>
-                          <input type="text" class="form-control" id="inputZip">
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sixresults" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">6 results</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="twelveresults" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">12 results</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="twentyfourresults" id="inlineRadio3" value="option3">
-                            <label class="form-check-label" for="inlineRadio3">24 results</label>
-                          </div>
-                </form>
-            </div>
-        </div>
-    </div>
-<!-- unviersal footer -->
-<div class="footer">
-    <div class="card-footer text-muted" id="footer">
-            <div class=l-foot>&copy;2018</div>
-            <div class=r-foot>WAAG</div>
-    </div>
 </div>
-<!-- google maps script -->
+<!-- footer -->
+<div class="footer">
+        <div class="card-footer text-muted" id="footer">
+            <div class=foot>&copy;2018 WAAG TECHNOLOGY AND DESIGN GROUP</div>
+        </div>
+</div>
+<!-- google api -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap"
     async defer></script>
     
