@@ -70,6 +70,13 @@ nav {
 #emailHelp {
     float:right;
     font-size:10px;
+  
+.bg-offwhite {
+    background-color: #f8f7f1;
+}
+
+#signin-form {
+  margin-left:40px;
 }
 
 #navigation {
