@@ -5,20 +5,25 @@ var state;
 var cityState;
 var zip;
 var map;
-var searchedLocation;
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 5.8520, lng: -55.2038
-        },
-        zoom: 3
-    });
-};
+var searchedPlace;
+var hikeApi = "200232469-8c224addc6df491926b59fdf73c26e1a";
+var googleApi = "AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c";
+var distance = 3;
+var lat;
+var lng;
+
+// function initMap() {
+//     map = new google.maps.Map(document.getElementById('map'), {
+//         center: {
+//             lat: 5.8520, lng: -55.2038
+//         },
+//         zoom: 3
+//     });
+// };
 
 //Click event listener for the button the index page
 $("#search-info").on("click", function (event) {
     event.preventDefault();
-    var googleApi = "AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c";
     var city = $('#inputCity').val().trim();
     var state = $('#inputState').val().trim();
 
@@ -30,14 +35,32 @@ $("#search-info").on("click", function (event) {
         url: queryURL,
         method: "GET"
     })
-        .then(function (response) {
-            console.log(response.results[0].geometry.location);
+        .then(function (coords) {
+            console.log(coords.results[0].geometry.location);
             //Passing latitude and longitude to searchedPlace
-            var searchedPlace = (response.results[0].geometry.location);
+            searchedPlace = (coords.results[0].geometry.location);
             console.log(searchedPlace);
+            lat = searchedPlace.lat;
+            lng = searchedPlace.lng;
+            var queryHike = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + lng + "&maxDistance=" + distance + "&key=" + hikeApi;
+            return $.ajax({
+                url: queryHike,
+                method: "GET"
+            }).then(function (hikeInfo) {
 
+                console.log(queryHike);
+
+                // Log the resulting object
+                console.log(hikeInfo);
+
+
+                // Log the data in the console as well
+                // console.log(hikeInfo.trails[0].location);
+                // console.log(hikeInfo.trails[0].type);
+                // console.log(hikeInfo.trails[0].length);
+                // console.log(hikeInfo.trails[0].ascent);
+            });
         });
-
 });
 
 $(document).ready(function () {
@@ -115,50 +138,27 @@ $(document).ready(function () {
 });
 // $("button").on("click", function () {
 
-var APIKey = "200232469-8c224addc6df491926b59fdf73c26e1a";
-
-// Here we are building the URL we need to query the database
-var queryURL = "https://www.hikingproject.com/data/get-trails?lat=39.9997&lon=-105.283&maxDistance=10&key=" + APIKey;
-
-// Here we run our AJAX call to the OpenWeatherMap API
-$.ajax({
-    url: queryURL,
-    method: "GET"
-})
-    // We store all of the retrieved data inside of an object called "response"
-    .then(function (response) {
 
 
-        // var searchTerm = $("#").val().trim();
-        // queryURL += "&q=" + searchTerm;
-
-        // // if the user provides a startYear, include it in the queryURL
-        // var startYear = $("#start-year").val().trim();
-
-        // if (parseInt(startYear)) {
-        //     queryURL += "&begin_date=" + startYear + "0101";
-        // }
-
-        // // if the user provides an endYear, include it in the queryURL
-        // var endYear = $("#end-year").val().trim();
-
-        // if (parseInt(endYear)) {
-        //     queryURL += "&end_date=" + endYear + "0101";
-        // }
-
-        // Log the queryURL
-        console.log(queryURL);
-
-        // Log the resulting object
-        console.log(response);
-
-        // Transfer content to HTML
 
 
-        // Log the data in the console as well
-        console.log(response.trails[0].location);
-        console.log(response.trails[0].type);
-        console.log(response.trails[0].length);
-        console.log(response.trails[0].ascent);
-    });
-        // });
+
+// var searchTerm = $("#").val().trim();
+// queryURL += "&q=" + searchTerm;
+
+// // if the user provides a startYear, include it in the queryURL
+// var startYear = $("#start-year").val().trim();
+
+// if (parseInt(startYear)) {
+//     queryURL += "&begin_date=" + startYear + "0101";
+// }
+
+// // if the user provides an endYear, include it in the queryURL
+// var endYear = $("#end-year").val().trim();
+
+// if (parseInt(endYear)) {
+//     queryURL += "&end_date=" + endYear + "0101";
+// }
+
+
+// });
