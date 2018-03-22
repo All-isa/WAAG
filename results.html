@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +14,14 @@
     <!--jquery reference-->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <!--firebase reference-->
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:600" rel="stylesheet">
     <title>Hiking App</title>
 </head>
+
 <body>
     <!-- Header -->
-    <div class="container-fluid px-0 bg-offwhite">
+    <div class="container-fluid px-0 mb-5 bg-offwhite">
         <nav class="navbar navbar-expand-sm navbar-light bg-offwhite container">
             <div class="mr-auto">
                 <a class="navbar-brand" href="https://placeholder.com">
@@ -27,18 +31,14 @@
             <div class="" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item pr-3">
-                        <a class="nav-link" href="#">Log-out</a>
+                        <button type="submit" id="logout" class="btn yellowbutton px-4">Log-out</button>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
 
-    <!-- <nav class="navbar navbar-expand-lg navbar-light  container-fluid">
-            <div class="container">
-            </div>
-        </nav> -->
-
+    <!-- Results Area -->
     <div class="row" id="map">
         <div class="col"></div>
     </div>
@@ -54,4 +54,5 @@
         defer></script>
 
 </body>
+
 </html>
