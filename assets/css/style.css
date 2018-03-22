@@ -1,6 +1,6 @@
-font-family: 'Anton', sans-serif;
+/* font-family: 'Anton', sans-serif;
 font-family: 'Signika', sans-serif;
-font-family: 'Damion', cursive;
+font-family: 'Damion', cursive; */
 
 /* Base Styling */
 
@@ -60,6 +60,21 @@ nav {
     color: #49beaa;
 }
 
+.yellowbutton {
+    background-color: #fdc046;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px; 
+    color: #014256;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.yellowbutton:hover {
+    background-color: #ffdd55;
+}
+
 #signin-form {
     background:rgba(162, 255, 239, .8);
     padding:30px;
@@ -70,6 +85,7 @@ nav {
 #emailHelp {
     float:right;
     font-size:10px;
+}
   
 .bg-offwhite {
     background-color: #f8f7f1;
