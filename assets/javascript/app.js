@@ -13,14 +13,16 @@ var distance = 3;
 var lat;
 var lng;
 
-// function initMap() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: {
-//             lat: 5.8520, lng: -55.2038
-//         },
-//         zoom: 3
-//     });
-// };
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 38.8792, lng: -99.3268
+        },
+        zoom: 3
+    });
+};
+//Displays the city and state searched on the search page
+$("#display-city-state").html(city + " , " + state);
 
 //Click event listener for the button the index page
 $("#searchtrails").on("click", function (event) {
