@@ -145,10 +145,33 @@ label {
 }
 
 #bodycontent {
-    margin-bottom: 200px;
+    margin-bottom: 75px;
+}
+
+#returnSearch {
+    margin-bottom: 150px;
 }
 
 .hikeimage {
     width: 100%;
     margin-top: 0;
+}
+
+.card {
+    background:rgba(162, 255, 239, .8);
+}
+
+.card-title {
+    font-family: 'Anton', sans-serif;
+    color:#014256;
+}
+
+.text-muted {
+    text-transform: uppercase;
+    font-size: 14px;
+
+}
+
+.card-text {
+    color:#014256;
 }

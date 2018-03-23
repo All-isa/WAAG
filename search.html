@@ -38,92 +38,88 @@
             </div>
         </nav>
     </div>
-<!-- body content -->
-        <div class="container">
-                <div class="row" id="signintext">
-                    <div class="col"></div>
-                    <div class="col-8">
-                            <h4>find-a-hike</h4>
-                            <h1>Trail Search</h1>
-                            <p>Help us find your next hike and fill out the form below.</p>
+    <!-- body content -->
+    <div class="container">
+        <div class="row justify-content-center" id="signintext">
+            <div class="col-8">
+                <h4>find-a-hike</h4>
+                <h1>Trail Search</h1>
+                <p>Help us find your next hike and fill out the form below.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center" id="bodycontent">
+            <div class="col-8">
+                <form id="signin-form">
+                    <div class="form-group pb-3">
+                        <label for="city">City Name</label>
+                        <input type="city" class="form-control" id="city" placeholder="Enter city here">
                     </div>
-                    <div class="col"></div>
-                </div>
-                <div class="row" id="bodycontent">
-                    <div class="col"></div>
-                    <div class="col-8">
-                        <form id="signin-form">
-                            <div class="form-group">
-                                <label for="city">City Name</label>
-                                <input type="city" class="form-control" id="city" placeholder="enter city here">
-                            </div>
-                            <div class="form-group">
-                                    <label for="inputState">State</label>
-                                    <select id="inputState" class="form-control">
-                                      <option selected>Choose...</option>
-                                      <option>Alabama</option>
-                                      <option>Alaska</option>
-                                      <option>Arizona</option>
-                                      <option>California</option>
-                                      <option>Colorado</option>
-                                      <option>Connecticut</option>
-                                      <option>Deleware</option>
-                                      <option>Florida</option>
-                                      <option>Georgia</option>
-                                      <option>Hawaii</option>
-                                      <option>Idaho</option>
-                                      <option>Illinois</option>
-                                      <option>Indiana</option>
-                                      <option>Iowa</option>
-                                      <option>Kansas</option>
-                                      <option>Kentucky</option>
-                                      <option>Louisiana</option>
-                                      <option>Maine</option>
-                                      <option>Maryland</option>
-                                      <option>Massachusetts</option>
-                                      <option>Michigan</option>
-                                      <option>Minnesota</option>
-                                      <option>Mississippi</option>
-                                      <option>Missouri</option>
-                                      <option>Montana</option>
-                                      <option>Nebraska</option>
-                                      <option>Nevada</option>
-                                      <option>New Hampshire</option>
-                                      <option>New Jersey</option>
-                                      <option>New Mexico</option>
-                                      <option>New York</option>
-                                      <option>North Carolina</option>
-                                      <option>North Dakota</option>
-                                      <option>Ohio</option>
-                                      <option>Oklahoma</option>
-                                      <option>Oregon</option>
-                                      <option>Pennsylvania</option>
-                                      <option>Rhode Island</option>
-                                      <option>South Carolina</option>
-                                      <option>South Dakota</option>
-                                      <option>Tennessee</option>
-                                      <option>Texas</option>
-                                      <option>Utah</option>
-                                      <option>Vermont</option>
-                                      <option>Virginia</option>
-                                      <option>Washington</option>
-                                      <option>West Virginia</option>
-                                      <option>Wisconsin</option>
-                                      <option>Wyoming</option>
-                                    </select>
-                                  </div>
-                            <div class="form-group">
-                                <label for="zipcode">Zipcode</label>
-                                <input type="zipcode" class="form-control" id="zipcode" placeholder="enter zipcode here">
-                            </div>
-                            <button type="submit" id="searchtrails" class="btn btn-primary">Search Trails</button>
+                    <div class="form-group pb-3">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>Alabama</option>
+                            <option>Alaska</option>
+                            <option>Arizona</option>
+                            <option>California</option>
+                            <option>Colorado</option>
+                            <option>Connecticut</option>
+                            <option>Deleware</option>
+                            <option>Florida</option>
+                            <option>Georgia</option>
+                            <option>Hawaii</option>
+                            <option>Idaho</option>
+                            <option>Illinois</option>
+                            <option>Indiana</option>
+                            <option>Iowa</option>
+                            <option>Kansas</option>
+                            <option>Kentucky</option>
+                            <option>Louisiana</option>
+                            <option>Maine</option>
+                            <option>Maryland</option>
+                            <option>Massachusetts</option>
+                            <option>Michigan</option>
+                            <option>Minnesota</option>
+                            <option>Mississippi</option>
+                            <option>Missouri</option>
+                            <option>Montana</option>
+                            <option>Nebraska</option>
+                            <option>Nevada</option>
+                            <option>New Hampshire</option>
+                            <option>New Jersey</option>
+                            <option>New Mexico</option>
+                            <option>New York</option>
+                            <option>North Carolina</option>
+                            <option>North Dakota</option>
+                            <option>Ohio</option>
+                            <option>Oklahoma</option>
+                            <option>Oregon</option>
+                            <option>Pennsylvania</option>
+                            <option>Rhode Island</option>
+                            <option>South Carolina</option>
+                            <option>South Dakota</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Utah</option>
+                            <option>Vermont</option>
+                            <option>Virginia</option>
+                            <option>Washington</option>
+                            <option>West Virginia</option>
+                            <option>Wisconsin</option>
+                            <option>Wyoming</option>
+                        </select>
                     </div>
-                    <div class="col"></div>
+                    <div class="form-group pb-3">
+                        <label for="zipcode">Zipcode</label>
+                        <input type="zipcode" class="form-control" id="zipcode" placeholder="Enter zipcode here">
+                    </div>
+                    <button type="submit" id="searchtrails" class="btn px-5 navybutton">Search Trails</button>
+            </div>
         </div>
     </div>
-</div>
-<!-- footer -->
-<div class="footer fixed-bottom">
+    </div>
+    <!-- footer -->
+    <div class="footer fixed-bottom">
         <div class="card-footer text-muted" id="footer">
             <div class=foot>&copy;2018 WAAG TECHNOLOGY AND DESIGN GROUP</div>
         </div>
