@@ -42,45 +42,41 @@
 
     <!-- Sign in Form -->
     <div class="container">
-        <div class="row" id="signintext">
-            <div class="col"></div>
+        <div class="row justify-content-center" id="signintext">
             <div class="col-8">
                 <h4>take-a-hike</h4>
                 <h1>Hello Hiker</h1>
                 <p>The trails are calling! Let's find the perfect trail for your next adventure. But first, please sign in.</p>
             </div>
-            <div class="col"></div>
         </div>
-        <div class="row" id="bodycontent">
-            <div class="col"></div>
+        <div class="row justify-content-center pt-3" id="bodycontent">
             <div class="col-8">
                 <form id="signin-form">
-                    <div class="form-group">
-                        <label for="Email">Email*</label>
-                        <p id="emailHelp">We'll never share your email with anyone else.</p>
+                    <div class="form-group pb-3">
+                        <label for="Email">Email</label>
+                        <p id="emailHelp">We'll never share your email.</p>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group pb-3">
                         <label for="Password">Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Password">
                     </div>
-                    <button type="submit" id="signup" class="btn btn-primary">Sign-up</button>
-                    <button type="submit" id="login" class="btn btn-primary">Log-in</button>
+                    <button type="submit" id="signup" class="btn px-5 mr-4 mb-sm-3 mb-md-0 navybutton">Sign-up</button>
+                    <button type="submit" id="login" class="btn px-5 navybutton">Log-in</button>
                 </form>
             </div>
-            <div class="col"></div>
+        </div>
     </div>
-</div>
- <!-- footer -->
-<div class="footer fixed-bottom">
+    <!-- footer -->
+    <div class="footer fixed-bottom">
         <div class="card-footer text-muted" id="footer">
             <div class=foot>&copy;2018 WAAG TECHNOLOGY AND DESIGN GROUP</div>
         </div>
-</div>
+    </div>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap" async
-            defer></script>
-        <script src="assets/javascript/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap" async
+        defer></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>

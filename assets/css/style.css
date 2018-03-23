@@ -78,6 +78,24 @@ nav {
     background-color: #ffdd55;
 }
 
+.navybutton {
+    background-color: #014256;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px; 
+    color: #f8f7f1;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Signika', sans-serif;
+    font-weight: 600;
+}
+
+.navybutton:hover {
+    background-color: #ffdd55;
+    color: #014256;
+}
+
 #signin-form {
     background:rgba(162, 255, 239, .8);
     padding:30px;
@@ -85,18 +103,36 @@ nav {
     font-family: 'Anton', sans-serif;
 }
 
+label {
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: .5px;
+}
+
 #emailHelp {
     float:right;
-    font-size:10px;
+    font-size:12px;
+    color:#014256;
 }
+
+.form-control {
+    color: #49beaa;
+    background-color: #f8f7f1;
+}
+
+
   
 .bg-offwhite {
     background-color: #f8f7f1;
 }
 
-#signin-form {
-  margin-left:40px;
+.text-grey {
+    color: #aec3c9;
 }
+
+/* #signin-form {
+  margin-left:40px;
+} */
 
 #navigation {
     /* background-image: url("./../images/topography-01.svg"), linear-gradient(#fcb420, #fede55);
@@ -109,10 +145,33 @@ nav {
 }
 
 #bodycontent {
-    margin-bottom: 200px;
+    margin-bottom: 75px;
+}
+
+#returnSearch {
+    margin-bottom: 150px;
 }
 
 .hikeimage {
     width: 100%;
     margin-top: 0;
+}
+
+.card {
+    background:rgba(162, 255, 239, .8);
+}
+
+.card-title {
+    font-family: 'Anton', sans-serif;
+    color:#014256;
+}
+
+.text-muted {
+    text-transform: uppercase;
+    font-size: 14px;
+
+}
+
+.card-text {
+    color:#014256;
 }
