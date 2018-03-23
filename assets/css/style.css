@@ -29,6 +29,10 @@ p {
     font-weight: 600;
 }
 
+.logo {
+    width: 250px;
+}
+
 #map {
     height: 400px;
     width:400px;
