@@ -12,15 +12,16 @@ var weatherApi = "6e84fd53e8f10a78c7c0f2df983c7a41";
 var distance = 3;
 var lat;
 var lng;
-
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 38.8792, lng: -99.3268
-        },
-        zoom: 3
-    });
+//Creates the map 
+function initMap(){
+map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+        lat: 38.8792, lng: -99.3268
+    },
+    zoom: 3
+});
 };
+
 //Displays the city and state searched on the search page
 $("#display-city-state").html(city + " , " + state);
 
