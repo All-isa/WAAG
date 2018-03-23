@@ -51,6 +51,7 @@ p {
 nav {
     width: 100%;
 }
+
 #footer {
    position: absolute;
    bottom: 0;
@@ -58,6 +59,7 @@ nav {
    background-color:#3f4c49;
    margin-top: 100px;
 }
+
 .foot {
     text-align: center;
     color: #49beaa;
@@ -95,7 +97,7 @@ nav {
 }
 
 #signin-form {
-  margin-left:40px;
+    margin-left:40px;
 }
 
 #navigation {
@@ -114,5 +116,16 @@ nav {
 
 .hikeimage {
     width: 100%;
-    margin-top: 0;
+}
+
+.list-group-item {
+    background-color: transparent;
+    font-family: anton;
+    color: #f8f7f1;
+    border-color: #f8f7f1;
+    font-size:18px;
+}
+
+#rating {
+    color:#ffdd55;
 }
