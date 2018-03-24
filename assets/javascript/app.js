@@ -12,26 +12,26 @@ var weatherApi = "6e84fd53e8f10a78c7c0f2df983c7a41";
 var distance;
 var lat;
 var lng;
+var hikeLat;
+var hikeLng;
 
-//Creates the map 
-function initMap(){
-map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-        lat: 38.8792, lng: -99.3268
-    },
-    zoom: 3
-});
+//Creates the map for results
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 38.8792, lng: -99.3268
+        },
+        zoom: 3
+    });
 };
 
-//Displays the city and state searched on the search page
-$("#display-city-state").html(city + " , " + state);
 
 //Click event listener for the button the index page
 $("#searchtrails").on("click", function (event) {
     event.preventDefault();
     var city = $('#city').val().trim();
     var state = $('#inputState').val().trim();
-
+    
     //Query URL from the Google Maps API
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=+" + city + ",+" + state + "&key=" + googleApi;
 
@@ -78,6 +78,9 @@ $("#searchtrails").on("click", function (event) {
             })
         });
 });
+
+//Displays the city and state searched on the search page
+$("#display-city-state").html(city + " , " + state);
 
 $(document).ready(function () {
 
