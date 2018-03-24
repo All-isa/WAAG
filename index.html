@@ -5,57 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap link -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <!--custom styled CSS-->
+    <!-- Bootstrap link -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-
+    <!--custom styled CSS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:300" rel="stylesheet">
-
-    <title>Hiking App</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:600" rel="stylesheet">
+    <!--jquery reference-->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <!--firebase reference-->
+    <title>Take-A-Hike</title>
 </head>
 
-<body>
+
+<body class="overlay">
+    <!-- Header -->
+    <div class="container-fluid px-0 mb-5 bg-offwhite">
+        <nav class="navbar navbar-expand-sm navbar-light bg-offwhite container">
+            <div class="mr-auto">
+                <a class="navbar-brand logo" href="signin.html">
+                    <img src="./assets/images/takeahike-logo-06.svg">
+                </a>
+            </div>
+            <div class="" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item pr-3">
+                        <button type="submit" id="logout" class="btn yellowbutton px-4">Log-out</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Sign in Form -->
     <div class="container">
-        <div class="row container">
-            <div class="col">
-                <nav class="navbar navbar-expand-sm navbar-light bg-light px-0 py-0">
-                    <div class="mr-auto">
-                        <a class="navbar-brand logo" href="signin.html">
-                            <img src="./assets/images/takeahike-logo-06.svg">
-                        </a>
+        <div class="row justify-content-center" id="signintext">
+            <div class="col-8">
+                <h4>take-a-hike</h4>
+                <h1>Hello Hiker</h1>
+                <p>The trails are calling! Let's find the perfect trail for your next adventure. But first, please sign in.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-3" id="bodycontent">
+            <div class="col-8">
+                <form id="signin-form">
+                    <div class="form-group pb-3">
+                        <label for="Email">Email</label>
+                        <p id="emailHelp">We'll never share your email.</p>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                     </div>
-                    <div class="" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
-                            <li class="nav-item pr-3">
-                                <a class="nav-link" href="#">Log-out</a>
-                            </li>
-                        </ul>
+                    <div class="form-group pb-3">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
                     </div>
-                </nav>
+                    <button type="submit" id="signup" class="btn px-5 mr-4 mb-sm-3 mb-md-0 navybutton">Sign-up</button>
+                    <button type="submit" id="login" class="btn px-5 navybutton">Log-in</button>
+                </form>
             </div>
         </div>
     </div>
-    <div class="footer">
+    <!-- footer -->
+    <div class="footer fixed-bottom">
         <div class="card-footer text-muted" id="footer">
-            <div class=l-foot>&copy;2018</div>
-            <div class=r-foot>WAAG</div>
+            <div class=foot>&copy;2018 WAAG TECHNOLOGY AND DESIGN GROUP</div>
         </div>
     </div>
-    <!--jquery reference-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--firebase reference-->
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
-    <!--JavaScript reference-->
-    <script src="./assets/javascript/app.js"></script>
-    <!--Google Map reference-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqySJr47rVKYnN2R2UvMM4YDKlRP691c&callback=initMap" async
         defer></script>
-
-
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
