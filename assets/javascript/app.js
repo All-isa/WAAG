@@ -12,6 +12,7 @@ var weatherApi = "6e84fd53e8f10a78c7c0f2df983c7a41";
 var distance = 3;
 var lat;
 var lng;
+
 //Creates the map 
 function initMap(){
 map = new google.maps.Map(document.getElementById('map'), {

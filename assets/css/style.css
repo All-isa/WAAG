@@ -29,6 +29,10 @@ p {
     font-weight: 600;
 }
 
+.logo {
+    width: 250px;
+}
+
 #map {
     height: 400px;
     width:400px;
@@ -41,9 +45,9 @@ p {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: url("./../images/topography-01.svg");
-    background-color:#196266;
-    background-size: 33%;
+    background-image: url("./../images/topography_teal.svg");
+    /* background-color:#196266; */
+    background-size: 60%;
     /* background-image: url("./../images/topography-01.svg"), linear-gradient(to bottom, #49beaa 0%, #196266 100%); */
 }
 
