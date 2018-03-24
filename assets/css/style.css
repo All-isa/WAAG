@@ -190,3 +190,7 @@ label {
 .card-text {
     color:#014256;
 }
+
+#hikestats {
+    padding-left:0;
+}
