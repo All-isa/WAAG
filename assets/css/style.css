@@ -151,6 +151,11 @@ label {
     margin-bottom: 75px;
 }
 
+.searchresults {
+    display: none;
+    margin-bottom: 75px;
+}
+
 #returnSearch {
     margin-bottom: 150px;
 }
