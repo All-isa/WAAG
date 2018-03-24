@@ -49,7 +49,8 @@ $("#searchtrails").on("click", function (event) {
 
     //Query URL from the Google Maps API
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=+" + city + ",+" + state + "&key=" + googleApi;
-
+    //Displays the city and state searched on the search page
+    $("#display-city-state").html(city + " , " + state);
     // Performing our AJAX GET request
     $.ajax({
         url: queryURL,
@@ -67,7 +68,7 @@ $("#searchtrails").on("click", function (event) {
                 url: queryHike,
                 method: "GET"
             })
-            //Printing hike information on the page
+                //Printing hike information on the page
                 .then(function (hikeInfo) {
                     console.log(hikeInfo)
                     for (var i = 0; i < hikeInfo.trails.length; i++) {
@@ -104,10 +105,8 @@ $("#searchtrails").on("click", function (event) {
                         console.log(weatherInfo);
                     })
                 })
-
         });
     };
-
 
     //Click event listener for the button the index page
     $("#searchtrails").on("click", function (event) {
