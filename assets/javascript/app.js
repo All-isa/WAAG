@@ -29,15 +29,17 @@ var tAscent;
 var trailDecent;
 var tDecent;
 
-//Creates the map for results
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 38.8792, lng: -99.3268
-        },
-        zoom: 3
-    });
-};
+
+$(document).ready(function () {
+    //Creates the map for results
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 38.8792, lng: -99.3268
+            },
+            zoom: 3
+        };
+         
 
 //Click event listener for the button the index page
 $("#searchtrails").on("click", function (event) {
@@ -102,14 +104,70 @@ $("#searchtrails").on("click", function (event) {
                         console.log(weatherInfo);
                     })
                 })
+
         });
-});
+    };
 
-//Displays the city and state searched on the search page
-$("#display-city-state").html(city + " , " + state);
 
-$(document).ready(function () {
+    //Click event listener for the button the index page
+    $("#searchtrails").on("click", function (event) {
+        event.preventDefault();
+        var city = $('#city').val().trim();
+        var state = $('#inputState').val().trim();
 
+        //Query URL from the Google Maps API
+        var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=+" + city + ",+" + state + "&key=" + googleApi;
+
+        // Performing our AJAX GET request
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            .then(function (coords) {
+                console.log(coords.results[0].geometry.location);
+                //Passing latitude and longitude to searchedPlace
+                searchedPlace = (coords.results[0].geometry.location);
+                console.log(searchedPlace);
+                lat = searchedPlace.lat;
+                lng = searchedPlace.lng;
+                var queryHike = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + lng + "&maxDistance=" + distance + "&key=" + hikeApi;
+                return $.ajax({
+                    url: queryHike,
+                    method: "GET"
+                })
+                    .then(function (hikeInfo) {
+                        console.log(hikeInfo)
+                        for (var i = 0; i < hikeInfo.trails.length; i++) {
+
+                        }
+                        pushData(city, state, hikeInfo.trails);
+
+                        database.ref().on("child_added", function (snapshot) {
+                            imageUrl = hikeInfo.trails[i].imgSmall;
+                            hikeName = hikeInfo.trails[i].name;
+                            hikeDesc = hikeInfo.trails[i].summary;
+                            hikeRating = hikeInfo.trails[i].stars;
+                            trailDis = hikeInfo.trails[i].length;
+                            trailAscent = hikeInfo.trails[i].ascent;
+                            trailDecent = hikeInfo.trails[i].descent;
+
+                            
+                        });
+
+                    }).then(function (weather) {
+                        var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
+                        return $.ajax({
+                            url: queryWeather,
+                            method: "GET"
+                        }).then(function (weatherInfo) {
+                            console.log(weatherInfo);
+                        })
+                    })
+            });
+    });
+
+    //Displays the city and state searched on the search page
+    $("#display-city-state").html(city + " , " + state);
 
     //Get elements
     const emailId = $("#email");
@@ -128,6 +186,18 @@ $(document).ready(function () {
     };
 
     firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+    //Push to Firebase
+    function pushData(city, state, hikeInfo) {
+
+        database.ref().push({
+            "city": city,
+            "state": state,
+            "info": hikeInfo
+        });
+    };
 
     const auth = firebase.auth();
 
@@ -163,7 +233,6 @@ $(document).ready(function () {
             // Email sent.
         }).catch(function (error) {
             console.log(error);
-
         });
     });
 
@@ -176,34 +245,9 @@ $(document).ready(function () {
             console.log(firebaseUser);
         } else {
             console.log("not logged in");
+            // document.location.href = document.location.hostname;
         }
     });
 
 
 });
-// $("button").on("click", function () {
-
-
-
-
-
-
-// var searchTerm = $("#").val().trim();
-// queryURL += "&q=" + searchTerm;
-
-// // if the user provides a startYear, include it in the queryURL
-// var startYear = $("#start-year").val().trim();
-
-// if (parseInt(startYear)) {
-//     queryURL += "&begin_date=" + startYear + "0101";
-// }
-
-// // if the user provides an endYear, include it in the queryURL
-// var endYear = $("#end-year").val().trim();
-
-// if (parseInt(endYear)) {
-//     queryURL += "&end_date=" + endYear + "0101";
-// }
-
-
-// });
