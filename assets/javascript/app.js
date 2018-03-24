@@ -28,6 +28,7 @@ var trailAscent;
 var tAscent;
 var trailDecent;
 var tDecent;
+
 //Creates the map for results
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -38,13 +39,12 @@ function initMap() {
     });
 };
 
-
 //Click event listener for the button the index page
 $("#searchtrails").on("click", function (event) {
     event.preventDefault();
     var city = $('#city').val().trim();
     var state = $('#inputState').val().trim();
-    
+
     //Query URL from the Google Maps API
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=+" + city + ",+" + state + "&key=" + googleApi;
 
@@ -65,40 +65,43 @@ $("#searchtrails").on("click", function (event) {
                 url: queryHike,
                 method: "GET"
             })
-            .then(function (hikeInfo) {
-                console.log(hikeInfo)
-                for (var i = 0 ; i < hikeInfo.trails.length; i++){
-                    displayDiv = $("<div>");
-                    displayDiv.addClass("holder");
-                    imageUrl = $("<img>");
-                    imageUrl.attr("src", hikeInfo.trails[i].imgSmall);
-                    console.log (imageUrl)
-                    hikeName = hikeInfo.trails[i].name;
-                    hName = $("<h3>").text("Name: " + hikeName);
-                    console.log(hName)
-                    hikeDesc = hikeInfo.trails[i].summary;
-                    hDesc = $("<p>").text("Summary: " + hikeDesc);
-                    console.log(hDesc);
-                    hikeRating = hikeInfo.trails[i].stars;
-                    hRating = $("<p>").text("Rating: " + hikeRating);
-                    console.log(hRating);
-                    trailDis = hikeInfo.trails[i].length;
-                    tDis = $("<p>").text("Distance: " + trailDis);
-                    console.log(tDis);
-                    trailAscent = hikeInfo.trails[i].ascent;
-                    tAscent = $("<p>").text("Ascent: " + trailAscent);
-                    trailDecent = hikeInfo.trails[i].descent;
-                    tDecent = $("<p>").text("Descent: " + trailDecent);
-               }
-            }).then(function (weather) {
-                var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
-                return $.ajax({
-                    url: queryWeather,
-                    method: "GET"
-                }).then(function (weatherInfo) {
-                    console.log(weatherInfo);
+            //Printing hike information on the page
+                .then(function (hikeInfo) {
+                    console.log(hikeInfo)
+                    for (var i = 0; i < hikeInfo.trails.length; i++) {
+                        displayDiv = $("<div>");
+                        displayDiv.addClass("holder");
+                        imageUrl = $("<img>");
+                        imageUrl.attr("src", hikeInfo.trails[i].imgSmall);
+                        console.log(imageUrl)
+                        hikeName = hikeInfo.trails[i].name;
+                        hName = $("<h3>").text("Name: " + hikeName);
+                        console.log(hName)
+                        hikeDesc = hikeInfo.trails[i].summary;
+                        hDesc = $("<p>").text("Summary: " + hikeDesc);
+                        console.log(hDesc);
+                        hikeRating = hikeInfo.trails[i].stars;
+                        hRating = $("<p>").text("Rating: " + hikeRating);
+                        console.log(hRating);
+                        trailDis = hikeInfo.trails[i].length;
+                        tDis = $("<p>").text("Distance: " + trailDis);
+                        console.log(tDis);
+                        trailAscent = hikeInfo.trails[i].ascent;
+                        tAscent = $("<p>").text("Ascent: " + trailAscent);
+                        trailDecent = hikeInfo.trails[i].descent;
+                        tDecent = $("<p>").text("Descent: " + trailDecent);
+                    }
                 })
-            })
+                //Pulling weather information from OpenWeatherMap API
+                .then(function (weather) {
+                    var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
+                    return $.ajax({
+                        url: queryWeather,
+                        method: "GET"
+                    }).then(function (weatherInfo) {
+                        console.log(weatherInfo);
+                    })
+                })
         });
 });
 
