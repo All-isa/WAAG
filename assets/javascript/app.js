@@ -17,11 +17,18 @@ var hikeLng;
 //Global variables for hiking results
 var imageUrl;
 var hikeName;
+var hName;
 var hikeDesc;
+var hDesc;
 var hikeRating;
+var hRating;
 var trailDis;
+var tDisc;
 var trailAscent;
+var tAscent;
 var trailDecent;
+var tDecent;
+
 
 $(document).ready(function () {
     //Creates the map for results
@@ -31,6 +38,73 @@ $(document).ready(function () {
                 lat: 38.8792, lng: -99.3268
             },
             zoom: 3
+        };
+         
+
+//Click event listener for the button the index page
+$("#searchtrails").on("click", function (event) {
+    event.preventDefault();
+    var city = $('#city').val().trim();
+    var state = $('#inputState').val().trim();
+
+    //Query URL from the Google Maps API
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=+" + city + ",+" + state + "&key=" + googleApi;
+
+    // Performing our AJAX GET request
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+        .then(function (coords) {
+            console.log(coords.results[0].geometry.location);
+            //Passing latitude and longitude to searchedPlace
+            searchedPlace = (coords.results[0].geometry.location);
+            console.log(searchedPlace);
+            lat = searchedPlace.lat;
+            lng = searchedPlace.lng;
+            var queryHike = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + lng + "&maxDistance=" + distance + "&key=" + hikeApi;
+            return $.ajax({
+                url: queryHike,
+                method: "GET"
+            })
+            //Printing hike information on the page
+                .then(function (hikeInfo) {
+                    console.log(hikeInfo)
+                    for (var i = 0; i < hikeInfo.trails.length; i++) {
+                        displayDiv = $("<div>");
+                        displayDiv.addClass("holder");
+                        imageUrl = $("<img>");
+                        imageUrl.attr("src", hikeInfo.trails[i].imgSmall);
+                        console.log(imageUrl)
+                        hikeName = hikeInfo.trails[i].name;
+                        hName = $("<h3>").text("Name: " + hikeName);
+                        console.log(hName)
+                        hikeDesc = hikeInfo.trails[i].summary;
+                        hDesc = $("<p>").text("Summary: " + hikeDesc);
+                        console.log(hDesc);
+                        hikeRating = hikeInfo.trails[i].stars;
+                        hRating = $("<p>").text("Rating: " + hikeRating);
+                        console.log(hRating);
+                        trailDis = hikeInfo.trails[i].length;
+                        tDis = $("<p>").text("Distance: " + trailDis);
+                        console.log(tDis);
+                        trailAscent = hikeInfo.trails[i].ascent;
+                        tAscent = $("<p>").text("Ascent: " + trailAscent);
+                        trailDecent = hikeInfo.trails[i].descent;
+                        tDecent = $("<p>").text("Descent: " + trailDecent);
+                    }
+                })
+                //Pulling weather information from OpenWeatherMap API
+                .then(function (weather) {
+                    var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
+                    return $.ajax({
+                        url: queryWeather,
+                        method: "GET"
+                    }).then(function (weatherInfo) {
+                        console.log(weatherInfo);
+                    })
+                })
+
         });
     };
 
