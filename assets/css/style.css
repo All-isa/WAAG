@@ -23,7 +23,7 @@ h1 {
 }
 
 p {
-    font-size: 24px;
+    font-size: 20px;
     color:#f8f7f1;
     font-family: 'Signika', sans-serif;
     font-weight: 600;
@@ -132,17 +132,10 @@ label {
     background-color: #f8f7f1;
 }
 
-#signin-form {
-    margin-left:40px;
-}
 
 .text-grey {
     color: #aec3c9;
 }
-
-/* #signin-form {
-  margin-left:40px;
-} */
 
 #navigation {
     /* background-image: url("./../images/topography-01.svg"), linear-gradient(#fcb420, #fede55);
