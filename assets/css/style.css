@@ -155,9 +155,21 @@ label {
     margin-bottom: 150px;
 }
 
+#heroimage {
+    height: 350px;
+    background-image: url("https://images.pexels.com/photos/34511/norway-mountain-sky-blue.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
 .hikeimage {
     width: 100%;
-    
+
 
 }
 
