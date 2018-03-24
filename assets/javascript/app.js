@@ -17,12 +17,17 @@ var hikeLng;
 //Global variables for hiking results
 var imageUrl;
 var hikeName;
+var hName;
 var hikeDesc;
+var hDesc;
 var hikeRating;
+var hRating;
 var trailDis;
+var tDisc;
 var trailAscent;
+var tAscent;
 var trailDecent;
-
+var tDecent;
 //Creates the map for results
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -63,20 +68,27 @@ $("#searchtrails").on("click", function (event) {
             .then(function (hikeInfo) {
                 console.log(hikeInfo)
                 for (var i = 0 ; i < hikeInfo.trails.length; i++){
-                    imageUrl = hikeInfo.trails[i].imgSmall;
+                    displayDiv = $("<div>");
+                    displayDiv.addClass("holder");
+                    imageUrl = $("<img>");
+                    imageUrl.attr("src", hikeInfo.trails[i].imgSmall);
                     console.log (imageUrl)
                     hikeName = hikeInfo.trails[i].name;
-                    console.log(hikeName)
+                    hName = $("<h3>").text("Name: " + hikeName);
+                    console.log(hName)
                     hikeDesc = hikeInfo.trails[i].summary;
-                    console.log(hikeDesc)
+                    hDesc = $("<p>").text("Summary: " + hikeDesc);
+                    console.log(hDesc);
                     hikeRating = hikeInfo.trails[i].stars;
-                    console.log(hikeRating);
+                    hRating = $("<p>").text("Rating: " + hikeRating);
+                    console.log(hRating);
                     trailDis = hikeInfo.trails[i].length;
-                    console.log(trailDis)
+                    tDis = $("<p>").text("Distance: " + trailDis);
+                    console.log(tDis);
                     trailAscent = hikeInfo.trails[i].ascent;
-                    console.log(trailAscent)
+                    tAscent = $("<p>").text("Ascent: " + trailAscent);
                     trailDecent = hikeInfo.trails[i].descent;
-                    console.log(trailDecent)
+                    tDecent = $("<p>").text("Descent: " + trailDecent);
                }
             }).then(function (weather) {
                 var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
