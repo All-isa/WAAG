@@ -14,6 +14,14 @@ var lat;
 var lng;
 var hikeLat;
 var hikeLng;
+//Global variables for hiking results
+var imageUrl;
+var hikeName;
+var hikeDesc;
+var hikeRating;
+var trailDis;
+var trailAscent;
+var trailDecent;
 
 //Creates the map for results
 function initMap() {
@@ -51,22 +59,25 @@ $("#searchtrails").on("click", function (event) {
             return $.ajax({
                 url: queryHike,
                 method: "GET"
-            }).then(function (hikeInfo) {
-                
-                var trailInfo = hikeInfo.trails;
-
-                for (var i = 0; i < trailInfo.length; i++) {
-                    // console.log(trailInfo);
-                    
-                    var trailDis = trailInfo.length;
-                    var trailAscent = trainlInfo.ascent;
-                    var trailDecent = trailInfo.decent;
-                    var trailRating = trailInfo.stars;
-                    // console.log(trailInfo.ascent);
-                    
+            })
+            .then(function (hikeInfo) {
+                console.log(hikeInfo)
+                for (var i = 0 ; i < hikeInfo.trails.length; i++){
+                    imageUrl = hikeInfo.trails[i].imgSmall;
+                    console.log (imageUrl)
+                    hikeName = hikeInfo.trails[i].name;
+                    console.log(hikeName)
+                    hikeDesc = hikeInfo.trails[i].summary;
+                    console.log(hikeDesc)
+                    hikeRating = hikeInfo.trails[i].stars;
+                    console.log(hikeRating);
+                    trailDis = hikeInfo.trails[i].length;
+                    console.log(trailDis)
+                    trailAscent = hikeInfo.trails[i].ascent;
+                    console.log(trailAscent)
+                    trailDecent = hikeInfo.trails[i].descent;
+                    console.log(trailDecent)
                }
-               
-
             }).then(function (weather) {
                 var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
                 return $.ajax({
