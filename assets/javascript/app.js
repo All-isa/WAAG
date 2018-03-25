@@ -123,7 +123,10 @@ $(document).ready(function () {
                     })
             });
     });
-
+    $("#newsearch").on("click", function() {
+        $("#city").empty();
+        $("#bodyresults").empty();
+    });
 
 
     //Get elements
