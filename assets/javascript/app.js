@@ -73,7 +73,7 @@ $(document).ready(function () {
                             //}
                         
                             var hikebtn = $("<div class='card'>");
-                            $("#newsearchresults").append(hikebtn);
+                            $("#bodyresults").append(hikebtn);
 
                             // imageUrl = hikeInfo.trails[i].imgSmall
                             // var trialImg = $("<img>").attr("src", imageUrl)
