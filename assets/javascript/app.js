@@ -76,7 +76,13 @@ $(document).ready(function () {
                             trailDecent = hikeInfo.trails[i].descent;  
 
                     
-                            $("#newsearchresults").prepend(imageUrl,hikeName,hikeDesc, hikeRating,trailDis,trailAscent,trailDecent);
+                            var hikebtn = $("<button>");
+                            hikebtn.addClass("hike-button letter letter-button-color")
+                            hikebtn.attr("data-letter", hikeInfo.trails[i]);
+                            hikebtn.text(hikeInfo.trails[i]);
+                            $("#newsearchresults").append(hikeInfo.trails[i]);
+                            
+                            // $("#newsearchresults").prepend(imageUrl,hikeName,hikeDesc, hikeRating,trailDis,trailAscent,trailDecent);
                             
                         }
                         // pushData(city, state, hikeInfo.trails);
