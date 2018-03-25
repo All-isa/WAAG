@@ -67,37 +67,50 @@ $(document).ready(function () {
                     .then(function (hikeInfo) {
                         console.log(hikeInfo)
                         for (var i = 0; i < hikeInfo.trails.length; i++) {
-                            imageUrl = hikeInfo.trails[i].imgSmall;
-                            hikeName = hikeInfo.trails[i].name;
-                            hikeDesc = hikeInfo.trails[i].summary;
+                            pushData(city, state, hikeInfo.trails);
+                            
+                            // database.ref().on("child_added", function (snapshot) {
+                            //}
+                        
+                            var hikebtn = $("<div class='card'>");
+                            $("#newsearchresults").append(hikebtn);
+
+                            // imageUrl = hikeInfo.trails[i].imgSmall
+                            // var trialImg = $("<img>").attr("src", imageUrl)
+                            // $(".card").append(trailImg)
+
+                            var cardBody = $("<div class='card-body'>");
+                            $(".card").append(cardBody);
+
+                            hikeName = hikeInfo.trails[i].name
+                            var cardTitle = $("<h5 class='card-title'>").text(hikeName);
+                            $(".card-body").append(cardTitle);
+
+                            hikeDesc = hikeInfo.trails[i].summary
+                            var pOne = $("<p class='card-text'>").text("Description: "+hikeDesc);
+                            $(".card-title").append(pOne);
+
+                            hikeDis = hikeInfo.trails[i].length
+                            var pTwo = $("<p class='card-text'>").text("Trail Length:" +hikeDis);
+                            $(".card-title").append(pTwo);
+
+                            trailAscent = hikeInfo.trails[i].ascent
+                            var pThree = $("<p class='card-text'>").text("Trail Ascent:" +trailAscent);
+                            $(".card-title").append(pThree);
+
+                            trailDecent = hikeInfo.trails[i].descent
+                            var pFour = $("<p class='card-text'>").text("Trail Descent:" +trailDecent);
+                            $(".card-title").append(pFour);
+
+                            var pFive = $("<p class='card-text' id='rating'>");
+                            $(".card-title").append(pFive);
+
                             hikeRating = hikeInfo.trails[i].stars;
-                            trailDis = hikeInfo.trails[i].length;
-                            trailAscent = hikeInfo.trails[i].ascent;
-                            trailDecent = hikeInfo.trails[i].descent;  
+                            var rating = $("<small class='text-muted'>").text("Rating:" +hikeRating);
+                            $("#rating").append(hikeRating);
 
-                    
-                            var hikebtn = $("<button>");
-                            hikebtn.addClass("hike-button letter letter-button-color")
-                            hikebtn.attr("data-letter", hikeInfo.trails[i]);
-                            hikebtn.text(hikeInfo.trails[i]);
-                            $("#newsearchresults").append(hikeInfo.trails[i]);
-                            
                             // $("#newsearchresults").prepend(imageUrl,hikeName,hikeDesc, hikeRating,trailDis,trailAscent,trailDecent);
-                            
-                        }
-                        // pushData(city, state, hikeInfo.trails);
-
-                        // database.ref().on("child_added", function (snapshot) {
-                        //     imageUrl = hikeInfo.trails[i].imgSmall;
-                        //     hikeName = hikeInfo.trails[i].name;
-                        //     hikeDesc = hikeInfo.trails[i].summary;
-                        //     hikeRating = hikeInfo.trails[i].stars;
-                        //     trailDis = hikeInfo.trails[i].length;
-                        //     trailAscent = hikeInfo.trails[i].ascent;
-                        //     trailDecent = hikeInfo.trails[i].descent;
-
-                        // });
-
+                    }
 
                     }).then(function (weather) {
                         var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
