@@ -66,7 +66,7 @@ $(document).ready(function () {
                 })
                     .then(function (hikeInfo) {
                         console.log(hikeInfo)
-                        for (var i = 0; i < hikeInfo.trails.length; i++) {
+                        for (var i = 0; i < 3; i++) {
                             pushData(city, state, hikeInfo.trails);
                             
                             // database.ref().on("child_added", function (snapshot) {
@@ -75,9 +75,9 @@ $(document).ready(function () {
                             var hikebtn = $("<div class='card'>");
                             $("#bodyresults").append(hikebtn);
 
-                            // imageUrl = hikeInfo.trails[i].imgSmall
-                            // var trialImg = $("<img>").attr("src", imageUrl)
-                            // $(".card").append(trailImg)
+                            imageUrl = hikeInfo.trails[i].imgSmall
+                            var trailImg = $("<img>").attr("src", imageUrl)
+                            $(".card").append(trailImg)
 
                             var cardBody = $("<div class='card-body'>");
                             $(".card").append(cardBody);
