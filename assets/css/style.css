@@ -194,6 +194,10 @@ label {
     background:rgba(162, 255, 239, .8);
 }
 
+.card-body{
+    float: left;
+}
+
 .card-title {
     font-family: 'Anton', sans-serif;
     color:#014256;

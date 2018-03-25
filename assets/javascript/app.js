@@ -72,8 +72,8 @@ $(document).ready(function () {
                             // database.ref().on("child_added", function (snapshot) {
                             //}
                         
-                            var hikebtn = $("<div class='card'>");
-                            $("#bodyresults").append(hikebtn);
+                            var card = $("<div class='card'>");
+                            $("#bodyresults").append(card);
 
                             // imageUrl = hikeInfo.trails[i].imgSmall
                             // var trialImg = $("<img>").attr("src", imageUrl)
