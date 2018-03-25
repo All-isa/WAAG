@@ -44,6 +44,9 @@ $(document).ready(function () {
         //Query URL from the Google Maps API
         var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=+" + city + ",+" + state + "&key=" + googleApi;
 
+        //Displays the city and state searched on the search page
+        $("#display-city-state").html(city + " , " + state);
+
         // Performing our AJAX GET request
         $.ajax({
             url: queryURL,
@@ -64,21 +67,31 @@ $(document).ready(function () {
                     .then(function (hikeInfo) {
                         console.log(hikeInfo)
                         for (var i = 0; i < hikeInfo.trails.length; i++) {
-
-                        }
-                        pushData(city, state, hikeInfo.trails);
-
-                        database.ref().on("child_added", function (snapshot) {
                             imageUrl = hikeInfo.trails[i].imgSmall;
                             hikeName = hikeInfo.trails[i].name;
                             hikeDesc = hikeInfo.trails[i].summary;
                             hikeRating = hikeInfo.trails[i].stars;
                             trailDis = hikeInfo.trails[i].length;
                             trailAscent = hikeInfo.trails[i].ascent;
-                            trailDecent = hikeInfo.trails[i].descent;
+                            trailDecent = hikeInfo.trails[i].descent;  
 
+                    
+                            $("#newsearchresults").prepend(imageUrl,hikeName,hikeDesc, hikeRating,trailDis,trailAscent,trailDecent);
                             
-                        });
+                        }
+                        // pushData(city, state, hikeInfo.trails);
+
+                        // database.ref().on("child_added", function (snapshot) {
+                        //     imageUrl = hikeInfo.trails[i].imgSmall;
+                        //     hikeName = hikeInfo.trails[i].name;
+                        //     hikeDesc = hikeInfo.trails[i].summary;
+                        //     hikeRating = hikeInfo.trails[i].stars;
+                        //     trailDis = hikeInfo.trails[i].length;
+                        //     trailAscent = hikeInfo.trails[i].ascent;
+                        //     trailDecent = hikeInfo.trails[i].descent;
+
+                        // });
+
 
                     }).then(function (weather) {
                         var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
@@ -92,8 +105,7 @@ $(document).ready(function () {
             });
     });
 
-    //Displays the city and state searched on the search page
-    $("#display-city-state").html(city + " , " + state);
+
 
     //Get elements
     const emailId = $("#email");
