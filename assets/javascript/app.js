@@ -66,51 +66,115 @@ $(document).ready(function () {
                 })
                     .then(function (hikeInfo) {
                         console.log(hikeInfo)
-                        for (var i = 0; i < 3; i++) {
+                        // for (var i = 0; i < 3; i++) {
                             pushData(city, state, hikeInfo.trails);
                             
                             // database.ref().on("child_added", function (snapshot) {
                             //}
                         
-                            var hikebtn = $("<div class='card'>");
-                            $("#bodyresults").append(hikebtn);
+                            // var hikebtn = $("<div class='card'>");
+                            // $("#bodyresults").append(hikebtn);
 
-                            imageUrl = hikeInfo.trails[i].imgSmall
+                            // Trail 1
+                            imageUrl = hikeInfo.trails[0].imgSmall
                             var trailImg = $("<img>").attr("src", imageUrl)
-                            $(".card").append(trailImg)
+                            $("#trail1").append(trailImg)
 
-                            var cardBody = $("<div class='card-body'>");
-                            $(".card").append(cardBody);
+                            var cardBody = $("<div class='card-body1'>");
+                            $("#trail1").append(cardBody);
 
-                            hikeName = hikeInfo.trails[i].name
-                            var cardTitle = $("<h5 class='card-title'>").text(hikeName);
-                            $(".card-body").append(cardTitle);
+                            hikeName = hikeInfo.trails[0].name
+                            var cardTitle = $("<h5 class='card-title1'>").text(hikeName);
+                            $(".card-body1").append(cardTitle);
 
-                            hikeDesc = hikeInfo.trails[i].summary
+                            hikeDesc = hikeInfo.trails[0].summary
                             var pOne = $("<p class='card-text'>").text("Description: "+hikeDesc);
-                            $(".card-title").append(pOne);
+                            $(".card-body1").append(pOne);
 
-                            hikeDis = hikeInfo.trails[i].length
-                            var pTwo = $("<p class='card-text'>").text("Trail Length:" +hikeDis);
-                            $(".card-title").append(pTwo);
+                            hikeDis = hikeInfo.trails[0].length
+                            var pTwo = $("<p class='card-text'>").text("Trail Length: " +hikeDis);
+                            $(".card-body1").append(pTwo);
 
-                            trailAscent = hikeInfo.trails[i].ascent
-                            var pThree = $("<p class='card-text'>").text("Trail Ascent:" +trailAscent);
-                            $(".card-title").append(pThree);
+                            trailAscent = hikeInfo.trails[0].ascent
+                            var pThree = $("<p class='card-text'>").text("Trail Ascent: " +trailAscent);
+                            $(".card-body1").append(pThree);
 
-                            trailDecent = hikeInfo.trails[i].descent
-                            var pFour = $("<p class='card-text'>").text("Trail Descent:" +trailDecent);
-                            $(".card-title").append(pFour);
+                            trailDecent = hikeInfo.trails[0].descent
+                            var pFour = $("<p class='card-text'>").text("Trail Descent: " +trailDecent);
+                            $(".card-body1").append(pFour);
 
-                            var pFive = $("<p class='card-text' id='rating'>");
-                            $(".card-title").append(pFive);
+                            hikeRating = hikeInfo.trails[0].stars;
+                            var pFive = $("<p class='card-text'>").text("Trail Rating: " +hikeRating);
+                            $(".card-body1").append(pFive);
 
-                            hikeRating = hikeInfo.trails[i].stars;
-                            var rating = $("<small class='text-muted'>").text("Rating:" +hikeRating);
-                            $("#rating").append(hikeRating);
+                            //Trail 2
+                            imageUrl = hikeInfo.trails[1].imgSmall
+                            var trailImg = $("<img>").attr("src", imageUrl)
+                            $("#trail2").append(trailImg)
+
+                            var cardBody = $("<div class='card-body2'>");
+                            $("#trail2").append(cardBody);
+
+                            hikeName = hikeInfo.trails[1].name
+                            var cardTitle = $("<h5 class='card-title2'>").text(hikeName);
+                            $(".card-body2").append(cardTitle);
+
+                            hikeDesc = hikeInfo.trails[1].summary
+                            var pOne = $("<p class='card-text'>").text("Description: "+hikeDesc);
+                            $(".card-body2").append(pOne);
+
+                            hikeDis = hikeInfo.trails[1].length
+                            var pTwo = $("<p class='card-text'>").text("Trail Length: " +hikeDis);
+                            $(".card-body2").append(pTwo);
+
+                            trailAscent = hikeInfo.trails[1].ascent
+                            var pThree = $("<p class='card-text'>").text("Trail Ascent: " +trailAscent);
+                            $(".card-body2").append(pThree);
+
+                            trailDecent = hikeInfo.trails[1].descent
+                            var pFour = $("<p class='card-text'>").text("Trail Descent: " +trailDecent);
+                            $(".card-body2").append(pFour);
+
+                            hikeRating = hikeInfo.trails[1].stars;
+                            var pFive = $("<p class='card-text'>").text("Trail Rating: " +hikeRating);
+                            $(".card-body2").append(pFive);
+
+                            //Trail 3
+                            imageUrl = hikeInfo.trails[2].imgSmall
+                            var trailImg = $("<img>").attr("src", imageUrl)
+                            $("#trail3").append(trailImg)
+
+                            var cardBody = $("<div class='card-body3'>");
+                            $("#trail3").append(cardBody);
+
+                            hikeName = hikeInfo.trails[2].name
+                            var cardTitle = $("<h5 class='card-title3'>").text(hikeName);
+                            $(".card-body3").append(cardTitle);
+
+                            hikeDesc = hikeInfo.trails[2].summary
+                            var pOne = $("<p class='card-text'>").text("Description: "+hikeDesc);
+                            $(".card-body3").append(pOne);
+
+                            hikeDis = hikeInfo.trails[2].length
+                            var pTwo = $("<p class='card-text'>").text("Trail Length: " +hikeDis);
+                            $(".card-body3").append(pTwo);
+
+                            trailAscent = hikeInfo.trails[2].ascent
+                            var pThree = $("<p class='card-text'>").text("Trail Ascent: " +trailAscent);
+                            $(".card-body3").append(pThree);
+
+                            trailDecent = hikeInfo.trails[2].descent
+                            var pFour = $("<p class='card-text'>").text("Trail Descent: " +trailDecent);
+                            $(".card-body3").append(pFour);
+
+                            hikeRating = hikeInfo.trails[2].stars;
+                            var pFive = $("<p class='card-text'>").text("Trail Rating: " +hikeRating);
+                            $(".card-body3").append(pFive);
+
+
 
                             // $("#newsearchresults").prepend(imageUrl,hikeName,hikeDesc, hikeRating,trailDis,trailAscent,trailDecent);
-                    }
+                    // }
 
                     }).then(function (weather) {
                         var queryWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=" + weatherApi;
@@ -204,6 +268,7 @@ $(document).ready(function () {
         if (firebaseUser) {
             console.log(firebaseUser);
         } else {
+            
             console.log("not logged in");
             // document.location.href = document.location.hostname;
         }
