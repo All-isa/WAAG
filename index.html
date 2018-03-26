@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <!-- Bootstrap link -->
@@ -15,8 +22,43 @@
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Anton|Damion|Signika:600" rel="stylesheet">
     <!--jquery reference-->
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCy9eM2c0RKkQkB3TTINPHmIX9BajI_Gt8",
+            authDomain: "hikingapp-eb47b.firebaseapp.com",
+            databaseURL: "https://hikingapp-eb47b.firebaseio.com",
+            projectId: "hikingapp-eb47b",
+            storageBucket: "hikingapp-eb47b.appspot.com",
+            messagingSenderId: "768321299488"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: 'search.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID
+
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>'
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
     <!--firebase reference-->
+
+
     <title>Take-A-Hike</title>
 </head>
 
@@ -47,23 +89,27 @@
                 <h4>take-a-hike</h4>
                 <h1>Hello Hiker</h1>
                 <p>The trails are calling! Let's find the perfect trail for your next adventure. But first, please sign in.</p>
-            </div>
-        </div>
-        <div class="row justify-content-center pt-3" id="bodycontent">
-            <div class="col-8">
-                <form id="signin-form">
-                    <div class="form-group pb-3">
-                        <label for="Email">Email</label>
-                        <p id="emailHelp">We'll never share your email.</p>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                    <div class="form-group pb-3">
-                        <label for="Password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <button type="submit" id="signup" class="btn px-5 mr-4 mb-sm-3 mb-md-0 navybutton">Sign-up</button>
-                    <button type="submit" id="login" class="btn px-5 navybutton">Log-in</button>
-                </form>
+                <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+                <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
+                <script type="text/javascript">
+                    // FirebaseUI config.
+                    var uiConfig = {
+                        signInSuccessUrl: 'search.html',
+                        signInOptions: [
+                            // Leave the lines as is for the providers you want to offer your users.
+                            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                            firebase.auth.EmailAuthProvider.PROVIDER_ID
+                        ],
+                        // Terms of service url.
+                        tosUrl: '<your-tos-url>'
+                    };
+
+                    // Initialize the FirebaseUI Widget using Firebase.
+                    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+                    // The start method will wait until the DOM is loaded.
+                    ui.start('#firebaseui-auth-container', uiConfig);
+                </script>
+                <div id="firebaseui-auth-container"></div>
             </div>
         </div>
     </div>
